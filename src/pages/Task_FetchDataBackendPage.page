@@ -1,0 +1,36 @@
+<apex:page tabStyle="Account" sidebar="false" controller="Task_FetchDataBackendApex" lightningStylesheets="true"  >
+    <head>
+        <apex:slds />
+       
+    </head>
+   
+    <apex:form >
+        <apex:pageBlock title="Account Information">
+            <apex:pageBlockSection >
+                <apex:selectList size="1" id="contacttable" value="{!getSelYear}" styleClass="slds-input slds-combobox" >
+                	<apex:selectoptions value="{!FiscalYearList}" />
+                    <apex:actionSupport event="onchange" action="{!doGetMultiSelectList}" reRender="ren"/>
+            	</apex:selectList>
+                <apex:outputPanel id="ren">
+                   
+                    <apex:selectList multiselect="true" value="{!getSelCont}">
+                        <apex:selectoptions value="{!forContData}"/>
+                        <apex:actionSupport event="onchange" action="{!doGetContactList}" reRender="data"/>
+                    </apex:selectList>
+                  
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            <apex:outputPanel id="data">
+               <apex:pageBlockTable value="{!conList}" var="con">
+                   <apex:column value="{!con.Name}"/>
+                   <apex:column value="{!con.Account.Name}"/>
+                   <apex:column value="{!con.Account.Fiscal_Year__c}"/>
+                   <apex:column value="{!con.Account.Industry}"/>
+                   <apex:column value="{!con.Account.Rating}"/>
+               </apex:pageBlockTable>
+            </apex:outputPanel>
+        </apex:pageBlock>
+            
+        
+    </apex:form>
+</apex:page>

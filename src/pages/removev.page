@@ -1,0 +1,14 @@
+<apex:page standardController="Opportunity">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:inputField value="{!Opportunity.StageName}" />
+            <apex:inputField value="{!Opportunity.StageName}" id="stageId"/>
+            <script type="text/javascript">
+            (function(){
+                var e = document.querySelectorAll('[id$="stageId"]')[0];
+                if (e && !e[0].value) {e.remove(0);}
+            })();
+            </script>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

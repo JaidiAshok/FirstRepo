@@ -1,0 +1,18 @@
+<apex:page >
+    <apex:includeScript value="lightning/lightning.out.js"/>
+
+    <script>
+        var myUserContext = "{!$User.UITheme}";
+ 
+        $Lightning.use("c:FontComponentApp", function() {
+        $Lightning.createComponent(
+            "c:FontComponent",
+            { UserContext: myUserContext },
+            "myDivId",
+            function(cmp) {
+                console.log('component created');
+                console.log(cmp);
+            });
+        });
+     </script>
+</apex:page>

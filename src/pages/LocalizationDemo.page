@@ -1,0 +1,29 @@
+<apex:page standardcontroller="Account" extensions="SK_LocalizationDemoController" language="{!selectedLang}" sidebar="false">
+<apex:form >
+    <div >
+        <div style="float:right">
+            <apex:selectList value="{!selectedLang}" size="1">
+                <apex:selectoptions value="{!AvailableLanguages}"/>
+                <apex:actionsupport event="onchange"/>
+            </apex:selectlist>
+        </div>
+    </div>
+    
+    <div id="maincontainer">
+        
+        <apex:pageblock >
+            <apex:pageblocksection >
+                <apex:inputfield value="{!Account.Name}"/>
+                <apex:inputfield value="{!Account.Active__c}"/>
+                <apex:inputfield value="{!Account.Industry}"/>
+                <apex:inputfield value="{!Account.BillingState}"/>
+                <apex:inputfield value="{!Account.BillingCountry}"/>
+                
+                
+            </apex:pageblocksection>
+        </apex:pageblock>
+        
+    </div>
+    
+</apex:form>
+</apex:page>

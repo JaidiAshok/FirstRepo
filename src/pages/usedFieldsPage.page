@@ -1,0 +1,14 @@
+<apex:page controller="usedFieldsClass">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!usedFields}" var="item">
+
+            <apex:column value="{!item}"/>
+
+        </apex:pageBlockTable>
+
+    </apex:pageBlock>
+    
+<!--<apex:repeat value="{!usedFields}" var="item">
+   {!item}
+ </apex:repeat>-->
+</apex:page>

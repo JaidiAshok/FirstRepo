@@ -1,0 +1,8 @@
+<apex:page standardController="User" extensions="createEventController">
+    <apex:pagemessages />
+    <apex:form >
+        Event Start Date : <apex:inputField value="{!user.Start_Date__c}"/> <p/>
+        Event End Date   :<apex:inputField value="{!user.End_Date__c}"/> <p/>
+        <apex:commandButton value="Save" action="{!saveEvent}"/>
+    </apex:form>
+</apex:page>

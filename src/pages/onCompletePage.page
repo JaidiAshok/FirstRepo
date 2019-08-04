@@ -1,0 +1,26 @@
+<apex:page id="MyTestingPage" controller="onCompleteClass"  showHeader="false">
+    <apex:pageMessages id="msgId"/>
+    <script>
+    function performCallOutMethod()
+    {
+        if(hasMessages == 'false') {
+            alert('hi');
+        }
+        
+    }
+    </script>
+    <apex:form id="MSEForm">
+        <apex:actionFunction name="performCallOut" action="{!submit}" reRender="panelId,msgId"/>
+        
+        
+        <apex:inputText id="customerNm" value="{!CustomerName}"/><br/>
+        <apex:commandButton value="Save" action="{!save}"
+                            oncomplete="return performCallOutMethod();" reRender="script-block,msgId"/>
+    </apex:form>
+    
+    <apex:outPutPanel layout="block" id="script-block">
+        <script>
+        var hasMessages = '{!hasError}';
+        </script>
+    </apex:outPutPanel>
+</apex:page>
